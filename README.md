@@ -11,7 +11,8 @@ Notes:
 >TUMBLR_CLIENT_SECRET=xxxxxxxxxx   
 >TUMBLR_REDIRECT_URI=http://localhost:3000/callback   
 >TUMBLR_OAUTH_TOKEN=xxxxxxxxxx   
->TUMBLR_OAUTH_TOKEN_SECRET=xxxxxxxxxx   
+>TUMBLR_OAUTH_TOKEN_SECRET=xxxxxxxxxx
+   
 The client tokens are retrieved after successfully registering your application. The OAuth1 tokens are retrieved from running **app** and opening the server in your browser of choice.   
 2. **tumblrweed** is optimized for creating simple text posts for testing purposes, and for deleting posts. You can use get_info to verify your API keys are working, and get_follower_count to verify your OAuth1 keys are working. If you want to do anything more than creating test posts and deleting posts, I would recommend looking at Tumblr's client libraries, as listed on their API docs.
 3. **nuke** is not a perfect script, meaning if you have more than 1000 posts, you will have to run the script multiple times. This is due to the rate limit of 1000 calls per hour per consumer key. I decided to optimize for not hitting the minute rate limit, as opposed to the hour rate limit, because I didn't want a script running for hours in the background. As written, **nuke** maxes out at deleting 250 posts per minute, and will run for about five minutes start to end per session. After running, **nuke** will let you know how many posts are left on your account. Wait about an hour from the first call to restart the script. If you have more than 5000 posts, you will have to wait one calendar day due to the rate limit of 5000 calls a day per consumer key.
